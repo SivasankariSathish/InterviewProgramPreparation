@@ -9,7 +9,7 @@ public class InterviewProgramToPractice {
 
 	public void missingElementInArray()
 	{
-		int min=1, max=15;
+		int min=1, max=14;
 		int existingEle[]= {3,5,9,12};
 		ArrayList<Integer> missingEle= new ArrayList<Integer>();
 
