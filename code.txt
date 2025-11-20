@@ -1,0 +1,399 @@
+package Day1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class InterviewProgramToPractice {
+
+
+	public void missingElementInArray()
+	{
+		int min=1, max=15;
+		int existingEle[]= {3,5,9,12};
+		ArrayList<Integer> missingEle= new ArrayList<Integer>();
+
+		for(int i=min;i<=max;i++)
+		{
+			int status=0;
+			for(int j=0;j<=existingEle.length-1;j++)
+			{
+				if(i==existingEle[j])
+				{
+					status=1;
+					break;
+
+				}
+
+			}
+			if(status==0)
+			{
+				missingEle.add(i);
+			}
+
+		}
+
+		System.out.println("Missing Element:"+missingEle);
+	}
+
+	public void characterCount()
+	{
+		String str1="abcdcccdef";
+		System.out.println("str1"+str1);
+		String str2="";
+		char a[]=str1.toCharArray();
+		int count=0;
+		for(int i=0;i<=a.length-1;i++)
+		{
+			if(a[i]=='c')
+			{
+				count++;
+				str2=str2+count;
+			}
+			else
+
+				str2=str2+a[i];
+		}
+
+		System.out.println("Str2:"+str2);
+	}
+
+	public void numberCharacter()
+	{
+		String str1="a2b4c6d5";
+		System.out.println("str1:"+str1);
+		String str2="";
+		char a[]=str1.toCharArray();
+		for(int i=0;i<=a.length-1;i++)
+		{
+			char c=a[i];
+			char count=a[i+1];
+			int times=Character.getNumericValue(count);
+			for(int j=times;j>=1;j--)
+			{
+
+				str2=str2+c;
+
+			}
+			i++;
+		}
+		System.out.println("Str2:"+str2);
+	}
+
+	public void mergeString()
+	{
+		String str1="bang";
+		String str2="Hydrea";
+		String str3="";
+		if(str1.length()>str2.length())
+		{
+			
+			for(int i=0;i<=str1.length()-1;i++)
+			{
+				str3=str3+str1.charAt(i);
+				if(i<=str2.length()-1)
+				{
+					str3=str3+str2.charAt(i);
+				}
+				
+			}
+			System.out.println("After Merge"+str3);
+		}
+		if(str2.length()>str1.length())
+		{
+			
+			for(int i=0;i<=str2.length()-1;i++)
+			{
+				if(i<=str1.length()-1)
+				{
+					str3=str3+str1.charAt(i);
+				}
+				str3=str3+str2.charAt(i);
+			}
+			System.out.println("After Merge"+str3);
+		}
+	}
+
+	public void vowelCount()
+	{
+		String str1="reyansivasathish";
+		char a[]=str1.toCharArray();
+		int count=0;
+		for(int i=0;i<=a.length-1;i++)
+		{
+			count=1;
+			for(int j=i+1;j<=a.length-1;j++)
+			{
+				if(a[i]==a[j])
+				{
+					a[j]='0';
+					count++;
+				}
+			}
+			if((a[i]=='a')||(a[i]=='e')||(a[i]=='i')||(a[i]=='o')||(a[i]=='u'))
+			{
+				
+					System.out.println(a[i]+"-------------"+count);
+				
+			}
+
+		}
+	}
+
+	public void stringCount()
+	{
+		String str1[]={"reyan","siva","sathish","reyan","karthi","siva"};
+		int count=0;
+		for(int i=0;i<=str1.length-1;i++)
+		{
+			count=1;
+			for(int j=i+1;j<=str1.length-1;j++)
+			{
+				if(str1[i]==str1[j])
+				{
+					str1[j]="0";
+					count++;
+				}
+			}
+
+			if(str1[i]!="0")
+			{
+				System.out.println(str1[i]+"-------------"+count);
+			}
+
+
+		}
+	}
+	public void anagramCheck()
+	{
+		String str1="silent";
+		String str2="listan";
+		int status=0;
+		if(str1.length()==str2.length())
+		{
+			char a[]=str1.toCharArray();
+			char b[]=str2.toCharArray();
+			Arrays.sort(a);
+			Arrays.sort(b);
+			for(int i=0;i<=str1.length()-1;i++)
+			{
+				if(a[i]!=b[i])
+				{
+					status=1;
+					System.out.println("The given string is not Anagram");
+					break;
+				}
+			}
+			if(status==0)
+			{
+				System.out.println("The given string is anagram");
+			}
+		}
+		else
+		{
+			System.out.println("The given String is not Anagram");
+		}
+	}
+
+	public void sortingArray()
+	{
+		int a[]= {23,76,14,46,89,11};
+		for(int i=0;i<a.length-1;i++)
+		{
+			for(int j=0;j<a.length-1-i;j++)
+			{
+				if(a[j]>a[j+1])
+				{
+					int temp=a[j];
+					a[j]=a[j+1];
+					a[j+1]=temp;
+
+				}
+			}
+		}
+		/*for(int i=0;i<=a.length-1;i++)
+		{
+			System.out.println(a[i]);
+		}*/
+		Arrays.toString(a);
+	}
+
+	public void allPrimeNumber()
+	{
+		System.out.println("Enter the list of Prime you want till");
+		Scanner sc= new Scanner(System.in);
+		int number=sc.nextInt();
+		System.out.println("The below numbers are Prime");
+		for(int i=1;i<=number;i++)
+		{
+			int status=0;
+			for(int j=2;j<i;j++)
+			{
+				if(i==1)
+				{
+					status=0;
+					break;
+				}
+				if((i==2))
+				{
+					status=0;
+					break;
+				}
+				if(i%j==0)
+				{
+					status=1;
+					break;
+				}
+			}
+			if(status==0)
+			{
+				System.out.println(i);
+
+			}
+		}  
+	}
+
+	public void fibonacciSeries()
+	{
+		int a=-1,b=1,c=0;
+		System.out.println("The Fibonacci series");
+		for(int i=1;i<=10;i++)
+		{
+			c=a+b;
+			System.out.println(c);
+			a=b;
+			b=c;
+		}
+	}
+
+	public void palindromeCheck()
+	{
+		String str1="madama";
+		String rev="";
+		for(int i=str1.length()-1;i>=0;i--)
+		{
+			rev=rev+str1.charAt(i);
+		}
+		if(str1.equalsIgnoreCase(rev))
+		{
+			System.out.println("The given string is palindrome");
+
+		}
+		else
+		{
+			System.out.println("The given string is not palindrome"); 
+		}
+	}
+
+public void integerPalindrome()
+	
+	{
+		int number=875389;
+		System.out.println(number);
+		int sum=0;
+		while(number>0)
+		{
+		 int r=number%10;
+		  sum=(sum*10)+r;
+		  number=number/10;
+		
+		}
+		System.out.println(sum);
+	}
+public void caseChange()
+{
+	String str1="Siva Sankari";
+	String afterChange="";
+	char a[]=str1.toCharArray();
+	for(int i=0;i<=a.length-1;i++)
+	{
+		char c=a[i];
+		if(Character.isLetter(c))
+		{
+			if(Character.isLowerCase(c))
+			{
+			c=Character.toUpperCase(c);
+			}
+			else
+			{
+			c=Character.toLowerCase(c);
+			}
+		}
+		afterChange=afterChange+c;
+	}
+	System.out.println(afterChange);
+}
+
+public void removeSpecialCharacter()
+{
+	String str1="Sivasa&*(sanhy";
+	System.out.println(str1.replaceAll("[^a-zA-Z0-9]", ""));
+}
+
+public void insertColor()
+{
+    ArrayList<String> input= new ArrayList<String>();
+    ArrayList<String> output= new ArrayList<String>();
+    input.add("red");
+    input.add("orange");
+    input.add("yellow");
+    for(String color:input)
+    {
+        output.add(color);
+        output.add("pink");
+    }
+    System.out.println(output);
+}
+
+public void swapString()
+{
+    String str1="sivasanari";
+    String str2="sathish";
+    String str3=str1+str2;
+    str2=str3.substring(0,str3.length()-str2.length());
+    str1=str3.substring(str2.length(),str3.length());
+    System.out.println("str1:"+str1);
+    System.out.println("str2:"+str2);
+
+}
+
+public void integerFromString()
+{
+	String str1="sivasanj457   huji#";
+	String str2=str1.replace(" ","");
+	String str3="";
+	char a[]=str2.toCharArray();
+	for(int i=0;i<=a.length-1;i++)
+	{
+		char c=a[i];
+		if(Character.isDigit(c))
+		{
+			str3=str3+c;
+		}
+	}
+	System.out.println(str3);
+	
+}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		InterviewProgramToPractice obj= new InterviewProgramToPractice();
+		// obj.missingElementInArray();	
+		// obj.characterCount();
+		//obj.numberCharacter();
+		//obj.mergeString();
+		//obj.vowelCount();
+		//obj.stringCount();
+		//obj.anagramCheck();
+		//obj.sortingArray();
+		//obj.fibonacciSeries();
+		//obj.palindromeCheck();
+		//obj.allPrimeNumber();
+		//obj.integerPalindrome();
+		//obj.caseChange();
+		//obj.removeSpecialCharacter();
+		//obj.insertColor();
+		//obj.swapString();
+		obj.integerFromString();
+
+	}
+}
